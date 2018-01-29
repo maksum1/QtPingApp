@@ -2,7 +2,13 @@ QT += qml quick
 
 CONFIG += c++11
 
-SOURCES += main.cpp
+#Lib for build
+LIBS += -lws2_32 #winsock 2.2 library
+
+
+
+SOURCES += main.cpp \
+    rawclient.cpp
 
 RESOURCES += qml.qrc
 
@@ -27,3 +33,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+HEADERS += \
+    rawclient.h
